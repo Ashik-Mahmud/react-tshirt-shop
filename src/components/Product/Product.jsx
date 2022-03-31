@@ -2,7 +2,7 @@ import React from "react";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import "./Product.css";
 const Product = ({ product, handleAddToCart }) => {
-  const { picture, name, price, _id } = product;
+  const { picture, name, price } = product;
   return (
     <div className="product">
       <div className="image">
