@@ -1,8 +1,8 @@
 import React from "react";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import "./Product.css";
-const Product = ({ product }) => {
-  const { picture, name, price } = product;
+const Product = ({ product, handleAddToCart }) => {
+  const { picture, name, price, _id } = product;
   return (
     <div className="product">
       <div className="image">
@@ -12,7 +12,10 @@ const Product = ({ product }) => {
         <h4>{name}</h4>
         <div className="inner-details">
           <span className="colorize">$ {price}</span>
-          <button className="btn btn-sm">
+          <button
+            className="btn btn-sm"
+            onClick={() => handleAddToCart(product)}
+          >
             <MdOutlineShoppingCart />
           </button>
         </div>

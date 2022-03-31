@@ -3,7 +3,7 @@ import { FaSearch, FaTshirt } from "react-icons/fa";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import "./Header.css";
-const Header = () => {
+const Header = ({ cartCount }) => {
   return (
     <header id="header">
       <div className="container">
@@ -28,7 +28,7 @@ const Header = () => {
                 to="/cart"
               >
                 <MdOutlineShoppingCart />
-                <sup className="badge">0</sup>
+                <sup className="badge">{cartCount}</sup>
               </NavLink>
             </li>
           </ul>
