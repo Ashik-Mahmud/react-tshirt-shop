@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaSearch, FaTshirt } from "react-icons/fa";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { NavLink } from "react-router-dom";
+import { NewContext } from "../../App";
 import "./Header.css";
-const Header = ({ cartCount }) => {
+const Header = () => {
+  const [cartCount] = useContext(NewContext);
   return (
     <header id="header">
       <div className="container">
