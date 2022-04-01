@@ -8,7 +8,7 @@ import IsStorage from "../../utilities/isStorage/isStorage";
 import CartItem from "../CartItem/CartItem";
 import "./Cart.css";
 const Cart = () => {
-  const [cartCount, setCartCount, carts, setCarts] = useContext(NewContext);
+  const { cartCount, setCartCount, carts, setCarts } = useContext(NewContext);
   const [cartTotal, setCartTotal] = useState(0);
 
   const totalCartTax = (cartTotal * 6) / 100;

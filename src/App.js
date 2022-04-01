@@ -23,7 +23,7 @@ function App() {
 
   return (
     <>
-    <NewContext.Provider value={[cartCount, setCartCount, carts, setCarts, products, setProducts, searchProduct, setSearchProduct]}>
+    <NewContext.Provider value={{cartCount, setCartCount, carts, setCarts, products, setProducts, searchProduct, setSearchProduct}}>
      <Header  />
      <Routes>
          <Route path='/' element={<Home />}/>

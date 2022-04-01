@@ -9,15 +9,9 @@ import { setStorage } from "../../utilities/useStorage/useStorage";
 import Product from "../Product/Product";
 import "./Shop.css";
 const Shop = () => {
-  const [
-    cartCount,
-    setCartCount,
-    carts,
-    setCarts,
-    products,
-    setProduct,
-    searchProduct,
-  ] = useContext(NewContext);
+  const { setCartCount, carts, setCarts, searchProduct } =
+    useContext(NewContext);
+
   const [grid, setGrid] = useState("");
 
   const gridTransform = (slug) => {

@@ -5,16 +5,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { NewContext } from "../../App";
 import "./Header.css";
 const Header = () => {
-  const [
-    cartCount,
-    setCartCount,
-    carts,
-    setCarts,
-    products,
-    setProducts,
-    searchProduct,
-    setSearchProduct,
-  ] = useContext(NewContext);
+  const { cartCount, products, setSearchProduct } = useContext(NewContext);
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
 
