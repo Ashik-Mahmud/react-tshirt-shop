@@ -3,13 +3,21 @@ import { BsLayoutThreeColumns } from "react-icons/bs";
 import { FiColumns } from "react-icons/fi";
 import { GrColumns } from "react-icons/gr";
 import { toast, ToastContainer } from "react-toastify";
+import styled from "styled-components";
 import { NewContext } from "../../App";
 import { setStorage } from "../../utilities/useStorage/useStorage";
 import Product from "../Product/Product";
 import "./Shop.css";
 const Shop = () => {
-  const [cartCount, setCartCount, carts, setCarts, products] =
-    useContext(NewContext);
+  const [
+    cartCount,
+    setCartCount,
+    carts,
+    setCarts,
+    products,
+    setProduct,
+    searchProduct,
+  ] = useContext(NewContext);
   const [grid, setGrid] = useState("");
 
   const gridTransform = (slug) => {
@@ -56,15 +64,24 @@ const Shop = () => {
             ))}
           </div>
         </div>
-        <div className={`shop-container ${grid}`}>
-          {products.map((product) => (
-            <Product
-              key={product._id}
-              product={product}
-              handleAddToCart={handleAddToCart}
+        {searchProduct.length > 0 ? (
+          <div className={`shop-container ${grid}`}>
+            {searchProduct.map((product) => (
+              <Product
+                key={product._id}
+                product={product}
+                handleAddToCart={handleAddToCart}
+              />
+            ))}
+          </div>
+        ) : (
+          <CenterDiv>
+            <img
+              src="https://tradebharat.in/assets/catalogue/img/no-product-found.png"
+              alt="emptyImage"
             />
-          ))}
-        </div>
+          </CenterDiv>
+        )}
       </div>
     </section>
   );
@@ -80,5 +97,9 @@ const GridLink = ({ gridTransform, grid, children, col }) => {
     </span>
   );
 };
+
+const CenterDiv = styled.div`
+  text-align: center;
+`;
 
 export default Shop;

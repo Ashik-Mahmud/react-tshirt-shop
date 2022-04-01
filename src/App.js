@@ -13,15 +13,17 @@ import useProducts from './hooks/useProducts/useProducts';
 export const NewContext = createContext('0')
 function App() {
  const [cartCount, setCartCount] = useState(0)
- const [products] = useProducts();
+ const [products, setProducts] = useProducts();
  const [carts, setCarts] = useCarts(products);
+ const [searchProduct, setSearchProduct] = useState([])
  useEffect(()=>{
     setCartCount(JSON.parse(localStorage.getItem("carts"))?.length || '0' )
- }, [])
+    setSearchProduct(products)
+ }, [products])
 
   return (
     <>
-    <NewContext.Provider value={[cartCount, setCartCount, carts, setCarts, products]}>
+    <NewContext.Provider value={[cartCount, setCartCount, carts, setCarts, products, setProducts, searchProduct, setSearchProduct]}>
      <Header  />
      <Routes>
          <Route path='/' element={<Home />}/>

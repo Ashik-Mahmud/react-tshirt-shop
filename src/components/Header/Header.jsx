@@ -1,11 +1,32 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { FaSearch, FaTshirt } from "react-icons/fa";
 import { MdOutlineShoppingCart } from "react-icons/md";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { NewContext } from "../../App";
 import "./Header.css";
 const Header = () => {
-  const [cartCount] = useContext(NewContext);
+  const [
+    cartCount,
+    setCartCount,
+    carts,
+    setCarts,
+    products,
+    setProducts,
+    searchProduct,
+    setSearchProduct,
+  ] = useContext(NewContext);
+  const [search, setSearch] = useState("");
+  const navigate = useNavigate();
+
+  const handleSearch = () => {
+    if (!search) return alert("fil out this field");
+    navigate("/shop");
+    const filterProducts = products.filter((product) =>
+      product.name.toLowerCase().includes(search.toLowerCase())
+    );
+    setSearchProduct(filterProducts);
+  };
+
   return (
     <header id="header">
       <div className="container">
@@ -15,8 +36,13 @@ const Header = () => {
             tShirt
           </a>
           <div className="search">
-            <input type="search" placeholder="Search Your TShirt" />
-            <button>
+            <input
+              type="search"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search Your TShirt"
+            />
+            <button onClick={handleSearch}>
               <FaSearch />
             </button>
           </div>

@@ -12,7 +12,7 @@ const Cart = () => {
   const [cartTotal, setCartTotal] = useState(0);
 
   const totalCartTax = (cartTotal * 6) / 100;
-  const grandTotal = cartTotal + totalCartTax + 10;
+  const grandTotal = (cartTotal + totalCartTax + 10).toFixed(2);
 
   const handleDeleteCartItem = (id) => {
     const itemsExceptDeleteItem = carts.filter((cart) => cart._id !== id);
