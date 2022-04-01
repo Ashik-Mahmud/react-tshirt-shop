@@ -4,16 +4,13 @@ import { FiColumns } from "react-icons/fi";
 import { GrColumns } from "react-icons/gr";
 import { toast, ToastContainer } from "react-toastify";
 import { NewContext } from "../../App";
-import useCarts from "../../hooks/useCarts/useCarts";
-import useProducts from "../../hooks/useProducts/useProducts";
 import { setStorage } from "../../utilities/useStorage/useStorage";
 import Product from "../Product/Product";
 import "./Shop.css";
 const Shop = () => {
-  const [cartCount, setCartCount] = useContext(NewContext);
-  const [products] = useProducts();
+  const [cartCount, setCartCount, carts, setCarts, products] =
+    useContext(NewContext);
   const [grid, setGrid] = useState("");
-  const [carts, setCarts] = useCarts(products);
 
   const gridTransform = (slug) => {
     setGrid(slug);

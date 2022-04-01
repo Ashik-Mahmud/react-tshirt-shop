@@ -1,0 +1,28 @@
+#cart {
+  position: relative;
+  padding: 1rem;
+}
+#cart .title {
+  position: relative;
+  padding: 0.5rem 1rem;
+  background: #f8f8f8;
+  border-radius: 5px;
+  margin: 0.4rem 0rem;
+}
+#cart .cart-container {
+  display: grid;
+  grid-template-columns: 5fr 2fr;
+  grid-gap: 1rem;
+  margin: 0.5rem 0rem;
+  position: relative;
+}
+#cart .cart-items-summery {
+  position: relative;
+  padding: 1rem;
+}
+#cart .cart-items-dashboard {
+  background-color: #f8f8f8;
+  padding: 2rem;
+  margin: 0.3rem 0rem;
+  border-radius: 5px;
+}
